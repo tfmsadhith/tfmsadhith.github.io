@@ -1,0 +1,38 @@
+body {
+    margin: 0 auto;
+    max-width: 50em;
+    line-height: 1.5;
+    padding: 4em 1em;
+    color: #222;
+    font-size: 23px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+h2 {
+    margin-top: 1em;
+    padding-top: 1em;
+    color: #111;
+}
+
+h1,
+strong {
+    color: #333;
+}
+
+code,
+pre {
+  background: #eee;
+}
+
+code {
+  padding: 2px 4px;
+  vertical-align: text-bottom;
+}
+
+pre {
+  padding: 1em;
+}
+
+quote {
+  font-style: italic
+}
