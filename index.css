@@ -1,10 +1,10 @@
 body {
     margin: 0 auto;
-    max-width: 50em;
+    max-width: 40em;
     line-height: 1.5;
-    padding: 4em 1em;
+    padding: 4em 9em;
     color: #222;
-    font-size: 23px;
+    font-size: 20px;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
@@ -12,6 +12,9 @@ h2 {
     margin-top: 1em;
     padding-top: 1em;
     color: #111;
+}
+a {
+  color: #ff1493;
 }
 
 h1,
@@ -33,6 +36,7 @@ pre {
   padding: 1em;
 }
 
-quote {
-  font-style: italic
+#review {
+  font-style: italic;
+  color: #555;
 }
