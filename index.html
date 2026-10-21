@@ -1,42 +1,86 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sanjay Adhith</title>
 <style>
   body {
     margin: 0;
-    padding: 40px 24px;
+    padding: 9vh 10vw;
+    background: #032a26;
+    color: #eee;
+    font: 17px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   }
-  .container {
-    width: 100%;
-    max-width: 600px;
-  }
-  a {
-    color: #c2185b;
-  }
-  .footer {
-    font-style: italic;
-    color: grey;
+  .wrap { display: flex; gap: 90px; }
+  header { width: 230px; flex: none; }
+  h1 { font: inherit; margin: 0 0 1em; }
+  .p > p:first-child { margin-top: 0; }
+  nav a { display: block; padding: 6px 0; color: #c2c2c2; text-decoration: none; }
+  nav a.on { color: #eee; font-weight: bold; }
+  main { max-width: 540px; }
+  a { color: #eee; }
+  a:hover { color: #6f9490; }
+  ul { list-style: none; padding: 0; margin: 0; }
+  li { margin-bottom: 20px; }
+  ul a { color: #fff; text-decoration: none; }
+  ul a.u { text-decoration: underline; }
+  .grey { color: #6f9490; }
+  @media (max-width: 800px) {
+    .wrap { display: block; }
+    nav { display: flex; gap: 30px; margin: 30px 0 60px; }
   }
 </style>
 </head>
 <body>
-<div class="container">
-  <h1>Sanjay Adhith</h1>
-  <p>Hi! I'm an undergrad at NUS. You can email me at <a href="mailto:sanjay.adhith@u.nus.edu">sanjay.adhith@u.nus.edu.</a></p>
-  <h2>Resources</h2>
-  <ul>
-    <li><a href="slides/UROPS_2526_slides.pdf">Slides</a> for a talk on lightweight fusion (April 2026).</li>
-  </ul>
-  <h2>Friends</h2>
-  <ul>
-    <li><a href="https://boonsuan.github.io/">Ho Boon Suan</a></li>
-    <li><a href="https://wyan.win/index.html">Win Way Yan</a></li>
-    <li><a href="https://saddle196883.github.io/personalpage/aboutme/">Timothy Wan</a></li>
-    <li><a href="https://victormath.pages.dev/">Victor Poon</a></li>
-  </ul>
-  <hr>
-  <p class="footer">Last updated in October 2026.</p>
+<div class="wrap">
+  <header>
+    <h1>Sanjay Adhith</h1>
+    <nav aria-label="Sections">
+      <a href="#home">home</a>
+      <a href="#resources">resources</a>
+      <a href="#friends">friends</a>
+    </nav>
+  </header>
+  <main>
+    <div class="p" id="home">
+      <p>Hi! I am a final year mathematics undergraduate at NUS. Feel free to email me at <a href="mailto:sanjay.adhith@u.nus.edu">sanjay.adhith@u.nus.edu</a>.</p>
+      <p class="grey">Last updated in October 2026.</p>
+    </div>
+    <div class="p" id="resources">
+      <ul>
+        <li><a class="u" href="slides/UROPS_2526_slides.pdf">Slides</a> for a talk on lightweight fusion (April 2026).</li>
+      </ul>
+    </div>
+    <div class="p" id="friends">
+      <ul>
+        <li><a href="https://boonsuan.github.io/">Ho Boon Suan</a></li>
+        <li><a href="https://wyan.win/index.html">Win Way Yan</a></li>
+        <li><a href="https://saddle196883.github.io/personalpage/aboutme/">Timothy Wan</a></li>
+        <li><a href="https://victormath.pages.dev/">Victor Poon</a></li>
+      </ul>
+    </div>
+  </main>
 </div>
+<script>
+  var t = document.querySelectorAll("nav a"), p = document.querySelectorAll(".p");
+  function s(h) {
+    if (!document.getElementById(h)) h = "home";
+    p.forEach(function (e) { e.hidden = e.id != h; });
+    t.forEach(function (a) {
+      var on = a.getAttribute("href") == "#" + h;
+      a.className = on ? "on" : "";
+      if (on) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
+    });
+    try { history.replaceState(null, "", "#" + h); } catch (e) {}
+  }
+  t.forEach(function (a) {
+    a.addEventListener("click", function (e) {
+      e.preventDefault();
+      s(a.getAttribute("href").slice(1));
+    });
+  });
+  s(location.hash.slice(1));
+</script>
 </body>
 </html>
